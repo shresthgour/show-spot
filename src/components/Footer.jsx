@@ -40,7 +40,7 @@ export default function Footer() {
                 Company name
               </h6>
               <p>
-                Here you can use rows and columns to organize your footer content. Lorem ipsum dolor sit amet,
+                Lorem ipsum dolor sit amet,
                 consectetur adipisicing elit.
               </p>
             </MDBCol>
@@ -117,7 +117,7 @@ export default function Footer() {
       <div className='text-center p-4' style={{ backgroundColor: 'rgba(0, 0, 0, 0.05)' }}>
         © 2021 Copyright:
         <a className='text-reset fw-bold' href='https://mdbootstrap.com/'>
-          MDBootstrap.com
+          showspot.com
         </a>
       </div>
     </MDBFooter>

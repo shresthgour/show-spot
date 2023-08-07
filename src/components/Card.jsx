@@ -1,9 +1,8 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 
 const Card = (props) => {
-	let { name, language, genres, image, summary } = props;
-	const [showForm, setShowForm] = useState(false);
-	const [isSubmitted, setIsSubmitted] = useState(false);
+	let { id, name, language, genres, image, summary } = props;
 
 	const truncateDescription = (text, maxWords) => {
 		const words = text.split(" ");
@@ -18,17 +17,7 @@ const Card = (props) => {
 
 	const truncatedHTML = truncateDescription(summary, 50);
 
-	const handleBookTicketClick = (event) => {
-		event.preventDefault();
-		setShowForm(true);
-	};
-
-	const handleSubmit = (event) => {
-		event.preventDefault();
-		// Handle form submission logic here
-		setIsSubmitted(true);
-		alert("Form submitted!");
-	};
+	const handleSubmit = (event) => {};
 
 	return (
 		<>
@@ -49,67 +38,11 @@ const Card = (props) => {
 									Language: {language}
 								</small>
 							</p>
-							{showForm && !isSubmitted ? (
-								<form onSubmit={handleSubmit}>
-									<div className="form-group">
-										<label htmlFor="title">
-											Movie Name: <b>{name}</b>
-										</label>
-									</div>
-									<div className="form-group">
-										<br />
-										<h4>Enter Your Details:</h4>
-									</div>
-									<div className="form-group">
-										<label htmlFor="name">Name</label>
-										<input
-											type="text"
-											id="name"
-											name="name"
-											className="form-control"
-											required
-										/>
-									</div>
-									<div className="form-group">
-										<label htmlFor="email">Email</label>
-										<input
-											type="email"
-											id="email"
-											name="email"
-											className="form-control"
-											required
-										/>
-									</div>
-									<div className="form-group">
-										<label htmlFor="phone">Phone</label>
-										<input
-											type="tel"
-											id="phone"
-											name="phone"
-											className="form-control"
-											required
-										/>
-									</div>
-									<div className="mt-2">
-										<button type="submit" className="btn btn-primary">
-											{isSubmitted ? "Already Booked!" : "Submit"}
-										</button>
-									</div>
-								</form>
-							) : (
-								<div>
-									{isSubmitted ? (
-										<p className="btn btn-primary">Already Booked!</p>
-									) : (
-										<a
-											href="/"
-											onClick={handleBookTicketClick}
-											className="btn btn-primary">
-											Book A Ticket
-										</a>
-									)}
-								</div>
-							)}
+							<div className="mt-2">
+								<Link to={`/movie/${props.id}`} className="btn btn-primary">
+									More Details
+								</Link>
+							</div>
 						</div>
 					</div>
 				</div>
